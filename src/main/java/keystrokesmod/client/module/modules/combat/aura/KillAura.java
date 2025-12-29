@@ -88,6 +88,10 @@ public class KillAura extends Module {
         rotate(i[0], i[1], false);
     }
 
+    public EntityPlayer getTarget() {
+        return target;
+    }
+
     @Subscribe
     public void onUpdate(UpdateEvent e) {
         if(!Utils.Player.isPlayerInGame() || locked) {

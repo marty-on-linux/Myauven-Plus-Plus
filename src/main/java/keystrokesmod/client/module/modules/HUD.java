@@ -158,6 +158,7 @@ public class HUD extends Module {
             }
             
             double margin = textSpacing.getInput();
+            int marginInt = (int) Math.round(margin);
             double scaleFactor = fontSize.getInput();
             int y = hudY;
             int del = 0;
@@ -167,15 +168,15 @@ public class HUD extends Module {
                 return;
 
             int textBoxWidth = Raven.moduleManager.getLongestActiveModule(mc.fontRendererObj);
-            int textBoxHeight = Raven.moduleManager.getBoxHeight(mc.fontRendererObj, margin);
+            int textBoxHeight = Raven.moduleManager.getBoxHeight(mc.fontRendererObj, marginInt);
 
             if (hudX < 0)
-				hudX = margin;
+			hudX = marginInt;
             if (hudY < 0)
-				hudY = margin;
+			hudY = marginInt;
 
             if ((hudX + textBoxWidth) > (mc.displayWidth / 2))
-				hudX = (mc.displayWidth / 2) - textBoxWidth - margin;
+			hudX = (mc.displayWidth / 2) - textBoxWidth - marginInt;
 
             if ((hudY + textBoxHeight) > (mc.displayHeight / 2))
 				hudY = (mc.displayHeight / 2) - textBoxHeight;
@@ -222,7 +223,7 @@ public class HUD extends Module {
             RenderUtils.drawRoundedRect(bgX, bgY, bgX + bgWidth, bgY + bgHeight, 
                 (int) cornerRadius.getInput(), color);
         } else {
-            drawRect(bgX, bgY, bgX + bgWidth, bgY + bgHeight, color);
+            Gui.drawRect(bgX, bgY, bgX + bgWidth, bgY + bgHeight, color);
         }
         
         // Draw glow effect if enabled
@@ -240,7 +241,7 @@ public class HUD extends Module {
                 RenderUtils.drawRoundedRect(x - i, y - i, x + width + i, y + height + i,
                     (int) cornerRadius.getInput() + i, glowColor);
             } else {
-                drawRect(x - i, y - i, x + width + i, y + height + i, glowColor);
+                Gui.drawRect(x - i, y - i, x + width + i, y + height + i, glowColor);
             }
         }
     }

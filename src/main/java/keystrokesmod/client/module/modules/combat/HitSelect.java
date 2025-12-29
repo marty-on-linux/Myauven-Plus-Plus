@@ -118,7 +118,7 @@ public class HitSelect extends Module {
             return true;
         }
         
-        HitSelectMode currentMode = HitSelectMode.values()[mode.getMode()];
+        HitSelectMode currentMode = mode.getMode();
         boolean allow;
         
         switch (currentMode) {
@@ -276,7 +276,7 @@ public class HitSelect extends Module {
     
     @Override
     public String getInfo() {
-        return HitSelectMode.values()[mode.getMode()].name();
+        return mode.getMode().name();
     }
     
     public enum HitSelectMode {

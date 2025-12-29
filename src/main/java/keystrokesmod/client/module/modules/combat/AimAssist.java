@@ -129,11 +129,9 @@ public class AimAssist extends Module {
                     }
                 }
 
-                // Check weapon only condition
+                // Check weapon only condition (tools treated as non-weapons here)
                 if (weaponOnly.isToggled() && !Utils.Player.isPlayerHoldingWeapon()) {
-                    if (!allowTools.isToggled() || !Utils.Player.isPlayerHoldingTool()) {
-                        return;
-                    }
+                    return;
                 }
                 
                 // Check moving only condition
@@ -176,7 +174,7 @@ public class AimAssist extends Module {
                     lastAttackTimer.start();
                 }
                 
-                AimMode mode = AimMode.values()[aimMode.getMode()];
+                AimMode mode = aimMode.getMode();
                 
                 if (blatantMode.isToggled() || mode == AimMode.Instant) {
                     // Instant/Blatant aim
@@ -314,7 +312,7 @@ public class AimAssist extends Module {
     
     @Override
     public String getInfo() {
-        return AimMode.values()[aimMode.getMode()].name();
+        return aimMode.getMode().name();
     }
     
     public enum AimMode {

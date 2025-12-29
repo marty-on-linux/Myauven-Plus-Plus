@@ -155,7 +155,7 @@ public class TargetStrafe extends Module {
     }
     
     private EntityLivingBase getTarget() {
-        TargetStrafeMode mode = TargetStrafeMode.values()[targetMode.getMode()];
+        TargetStrafeMode mode = targetMode.getMode();
         
         switch (mode) {
             case KillAura:

@@ -95,12 +95,12 @@ public class AntiVoid extends Module {
         // Check if only in bedwars mode
         if (onlyInBedwars.isToggled()) {
             // Simple check - could be improved with scoreboard parsing
-            if (!mc.theWorld.getScoreboard().getObjectiveInDisplaySlot(1) != null) {
+            if (mc.theWorld.getScoreboard().getObjectiveInDisplaySlot(1) == null) {
                 return;
             }
         }
         
-        AntiVoidMode currentModeValue = AntiVoidMode.values()[mode.getMode()];
+        AntiVoidMode currentModeValue = mode.getMode();
         
         // Update void state
         wasOverVoid = isOverVoid;
@@ -316,7 +316,7 @@ public class AntiVoid extends Module {
     
     @Override
     public String getInfo() {
-        return AntiVoidMode.values()[mode.getMode()].name();
+        return mode.getMode().name();
     }
     
     public enum AntiVoidMode {

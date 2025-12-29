@@ -150,7 +150,7 @@ public class Velocity extends Module {
         if (!(fe.getEvent() instanceof LivingUpdateEvent)) return;
         if (!Utils.Player.isPlayerInGame()) return;
         
-        VelocityMode currentMode = VelocityMode.values()[velocityMode.getMode()];
+        VelocityMode currentMode = velocityMode.getMode();
         
         // Handle jump cooldown
         if (jumpCooldownTicks > 0) {
@@ -231,7 +231,7 @@ public class Velocity extends Module {
             EntityPlayer attacker = (EntityPlayer) mc.thePlayer.getLastAttacker();
             Item item = attacker.getCurrentEquippedItem() != null ? attacker.getCurrentEquippedItem().getItem() : null;
             
-            ProjectileMode pMode = ProjectileMode.values()[projectilesMode.getMode()];
+            ProjectileMode pMode = projectilesMode.getMode();
             if ((item instanceof ItemEgg || item instanceof ItemBow || item instanceof ItemSnow
                     || item instanceof ItemFishingRod) && pMode == ProjectileMode.ItemHeld) {
                 applyProjectileVelocity();
@@ -368,7 +368,7 @@ public class Velocity extends Module {
     
     @Override
     public String getInfo() {
-        return VelocityMode.values()[velocityMode.getMode()].name();
+        return velocityMode.getMode().name();
     }
 
     public enum VelocityMode {

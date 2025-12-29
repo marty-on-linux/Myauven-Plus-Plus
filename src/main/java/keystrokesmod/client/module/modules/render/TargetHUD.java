@@ -112,7 +112,7 @@ public class TargetHUD extends Module {
         // Calculate fade alpha
         float fadeAlpha = 1.0f;
         if (timeSinceAttack > fadeOutTime.getInput() - 500) {
-            fadeAlpha = 1.0f - ((timeSinceAttack - (fadeOutTime.getInput() - 500)) / 500f);
+            fadeAlpha = 1.0f - (float) ((timeSinceAttack - (fadeOutTime.getInput() - 500)) / 500f);
         }
         
         GL11.glPushMatrix();

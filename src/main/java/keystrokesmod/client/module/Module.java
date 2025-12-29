@@ -112,6 +112,13 @@ public class Module {
                 this.isToggled = false;
     }
 
+    /**
+     * Optional short info string for HUD display; modules can override.
+     */
+    public String getInfo() {
+        return null;
+    }
+
     public boolean canBeEnabled() {
         return true;
     }

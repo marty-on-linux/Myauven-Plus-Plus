@@ -94,7 +94,7 @@ public class NoSlow extends Module {
         if (!Utils.Player.isPlayerInGame()) return;
         if (!mc.thePlayer.isUsingItem()) return;
         
-        NoSlowMode currentMode = NoSlowMode.values()[mode.getMode()];
+        NoSlowMode currentMode = mode.getMode();
         
         // Check what item is being used
         boolean isSword = mc.thePlayer.getHeldItem() != null && mc.thePlayer.getHeldItem().getItem() instanceof ItemSword;
